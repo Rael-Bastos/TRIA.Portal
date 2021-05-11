@@ -1,0 +1,73 @@
+<div class="col-sm-12">
+  <div class="textoBoxTopo" style="text-align:center;">
+
+    CLIENTES
+
+  </div>
+</div>
+
+<div class="boxPadrao col-md-12 col-sm-12">
+
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-md-4">
+      <div class="btn-Padrao text-center " style="margin-bottom: 30px;" routerLink="/clientes/add/0">
+        <span class="negrito fonte-maior">Novo Cliente</span><br />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 espacaCima ">
+      <p class="subTextoBoxTopo">Listagem Clientes</p><br>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row topo-acord">
+      <div class="col-md-3 subTituloTable">
+        <span class="boxConsultaTexto">Nome</span>
+      </div>
+
+      <div class="col-md-3  subTituloTable">
+        <span class="boxConsultaTexto">Empresa</span>
+      </div>
+      <div class="col-md-2  subTituloTable">
+        <span class="boxConsultaTexto">Tel</span>
+      </div>
+      <div class="col-md-2  subTituloTable">
+        <span class="boxConsultaTexto">Criação</span>
+      </div>
+      <div class="col-md-2  subTituloTable">
+        <span class="boxConsultaTexto">AÇÕES</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row card-acord" *ngFor="let cliente of clientes">
+      <div class="col-md-3 subTituloTable">
+        <span>{{cliente.nmCliente}}</span>
+      </div>
+      <div class="col-md-3 subTituloTable">
+        <span>{{cliente.nmEmpresa}}</span>
+      </div>
+      <div class="col-md-2 subTituloTable">
+        <span>{{cliente.telefone}}</span>
+      </div>
+      <div class="col-md-2 subTituloTable">
+        <span>{{cliente.dtInclusao}}</span>
+      </div>
+
+      <div class="col-md-2 subTituloTable">
+        <a type="submit" routerLink="/clientes/edit/{{cliente.id}}">
+        <i class="fas fa-edit icones" ></i>
+      </a>
+      <a type="submit" (click)="onDelete(cliente.id)">
+        <i class="fas fa-trash icones" ></i>
+      </a>
+      </div>
+    </div>
+  </div>
+  <div class="conteudoTabelaLinha" *ngIf="clientes.length == 0">
+    <i>Não há nenhum resultado para sua busca.</i>
+  </div>
+
+</div>

@@ -1,0 +1,66 @@
+<div class="col-sm-12">
+  <div class="textoBoxTopo" style="text-align:center;">
+
+    Produtos/Serviços
+
+  </div>
+</div>
+
+<div class="boxPadrao col-md-12 col-sm-12">
+
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-md-4">
+      <div class="btn-Padrao text-center " style="margin-bottom: 30px;" routerLink="/produtos/add/0">
+        <span class="negrito fonte-maior">Novo Produto</span><br />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 espacaCima ">
+      <p class="subTextoBoxTopo">Listagem Produtos/Serviços</p><br>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row topo-acord">
+        <div class="col-md-8 subTituloTable">
+          <span class="boxConsultaTexto">Produto/Serviço</span>
+        </div>
+
+        <div class="col-md-2  subTituloTable">
+          <span class="boxConsultaTexto">Criação</span>
+        </div>
+        <div class="col-md-2  subTituloTable">
+          <span class="boxConsultaTexto">AÇÕES</span>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row card-acord" *ngFor="let produto of produtos">
+      <div class="col-md-8 subTituloTable">
+        <span>{{produto.nmProdutoServico}}</span>
+      </div>
+      <div class="col-md-2 subTituloTable">
+        <span>{{produto.dtInclusao}}</span>
+      </div>
+
+      <div class="col-md-2 subTituloTable">
+        <a type="submit" routerLink="edit/{{produto.id}}">
+        <i class="fas fa-edit icones" ></i>
+      </a>
+      <a type="submit" (click)="onDelete(produto.id)">
+        <i class="fas fa-trash icones" ></i>
+      </a>
+      </div>
+    </div>
+  </div>
+  <div class="conteudoTabelaLinha" *ngIf="produtos.length == 0" >
+    <i>Não há nenhum resultado para sua busca.</i>
+</div>
+
+
+
+
+
+
+</div>

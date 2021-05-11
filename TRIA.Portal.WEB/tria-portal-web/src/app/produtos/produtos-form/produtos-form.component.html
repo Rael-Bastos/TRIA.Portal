@@ -1,0 +1,48 @@
+<div class="col-sm-12">
+  <div class="textoBoxTopo" style="text-align:center;">
+
+    Produtos/Serviços
+
+  </div>
+</div>
+
+<div class="boxPadrao col-md-12 col-sm-12">
+
+  <div class="row">
+    <div class="col-md-12 espacaCima ">
+      <p class="subTextoBoxTopo">{{title}} Produto/Serviço</p><br>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <form #f="ngForm" autocomplete="off">
+      <input class="form-control" type="hidden" [ngModel]="produto.id" name="id" id="">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 form-group">
+          <label for="exampleFormControlInput1">Produto/Serviço</label>
+          <input type="text" class="form-control" id="nmProdutoServico" name="nmProdutoServico" [(ngModel)]="produto.nmProdutoServico" >
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-sm-3"></div>
+        <div class="col-md-3" *ngIf="id === 0">
+          <div class="btn-Padrao text-center " style="margin-bottom: 30px;" (click)="onSubmit(f)">
+            <span class="negrito fonte-maior">Salvar</span><br />
+          </div>
+        </div>
+        <div class="col-md-3" *ngIf="id > 0">
+          <div class="btn-Padrao text-center " style="margin-bottom: 30px;" (click)="onSubmit(f)">
+            <span class="negrito fonte-maior">Editar</span><br />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="btn-Padrao text-center " style="margin-bottom: 30px;" routerLink="/produtos">
+            <span class="negrito fonte-maior">Cancelar</span><br />
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

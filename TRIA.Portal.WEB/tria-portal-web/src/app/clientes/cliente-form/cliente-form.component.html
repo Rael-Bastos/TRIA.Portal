@@ -1,0 +1,88 @@
+<div class="col-sm-12">
+  <div class="textoBoxTopo" style="text-align:center;">
+
+    CLIENTES
+
+  </div>
+</div>
+
+<div class="boxPadrao col-md-12 col-sm-12">
+
+  <div class="row">
+    <div class="col-md-12 espacaCima ">
+      <p class="subTextoBoxTopo">{{title}} Cliente</p><br>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <form #f="ngForm" autocomplete="off">
+      <input class="form-control" type="hidden" [ngModel]="cliente.id" name="id" id="">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 form-group">
+          <label >Empresa</label>
+          <input type="text" class="form-control" id="nmEmpresa" name="nmEmpresa" [(ngModel)]="cliente.nmEmpresa" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 form-group">
+          <label >Nome</label>
+          <input type="text" class="form-control" id="nmCliente" name="nmCliente" [(ngModel)]="cliente.nmCliente" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 form-group">
+          <label >Telefone</label>
+          <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="cliente.telefone" mask="(00) 00000-0000" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 form-group">
+          <label >Email</label>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="cliente.email" required >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 form-group">
+          <label >Produtos/Serviços</label>
+          <select class="form-control" id="idProdutoServico" name="idProdutoServico" [(ngModel)]="cliente.idProdutoServico" required>
+            <option value="0">selecione...</option>
+            <option *ngFor="let produto of produtos" value="{{produto.id}}">{{produto.nmProdutoServico}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 form-group">
+          <label >Conteudo</label>
+          <textarea type="text"cols="30" rows="10" class="form-control" id="textoLivre" name="textoLivre" [(ngModel)]="cliente.textoLivre" required >
+
+          </textarea>
+          </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-sm-3"></div>
+        <div class="col-md-3" *ngIf="id === 0">
+          <div class="btn-Padrao text-center " style="margin-bottom: 30px;" (click)="onSubmit(f)">
+            <span class="negrito fonte-maior">Salvar</span><br />
+          </div>
+        </div>
+        <div class="col-md-3" *ngIf="id > 0">
+          <div class="btn-Padrao text-center " style="margin-bottom: 30px;" (click)="onSubmit(f)">
+            <span class="negrito fonte-maior">Editar</span><br />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="btn-Padrao text-center " style="margin-bottom: 30px;" routerLink="/clientes">
+            <span class="negrito fonte-maior">Cancelar</span><br />
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

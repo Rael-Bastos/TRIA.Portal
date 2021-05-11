@@ -1,0 +1,42 @@
+<header>
+  <div class="px-3 py-2 text-white navbar-expand-md fixed-top bg-dark" style="background-color: #1b767f !important;">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+          <img src="../assets/images/logo_tria.png" class="d-inline-block align-top" style="width: 163px;" alt="">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+          <li>
+            <a href="#" class="nav-link text-white" routerLink="/clientes" >
+              <i class="fas fa-users"></i>
+              Clientes
+            </a>
+          </li>
+          <li *ngIf="isAdministrador">
+            <a href="#" class="nav-link text-white" routerLink="/produtos">
+              <i class="fas fa-boxes"></i>
+              Produtos
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">
+              <i class="fas fa-user-circle"></i>
+              Olá {{nmUsuario}}
+            </a>
+          </li>
+          <li>
+            <a class="nav-link text-white" (click)="onLogOut()" title="Sair" style="cursor: pointer;">
+              <i class="fas fa-sign-out-alt"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<section style="margin-top:70px">
+  <main class="container">
+    <router-outlet></router-outlet>
+  </main>
+</section>

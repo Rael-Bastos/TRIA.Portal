@@ -1,0 +1,10 @@
+.not-margin{
+  margin-bottom: 0;
+}
+ button{
+   border: none;
+   background-color: transparent;
+ }
+ button i{
+   text-align: right;
+ }
